@@ -1,4 +1,4 @@
-﻿﻿# Instagram Automation with Node.js
+﻿﻿## Instagram Automation with Node.js
 ![image](https://github.com/ylmazmehmet60/nodejs-instagram-api/assets/35243461/d43428ad-e3c3-4e97-8f5c-36774ef8aa9c)
 
 ## Overview
@@ -19,63 +19,39 @@ This Node.js script provides automation for interacting with Instagram using the
 
 ## Setup
 
-1. Clone this repository to your local machine.
+1. Install npm package to your local machine.
 
     ```bash
-    git clone git@github.com:ylmazmehmet60/nodejs-instagram-api.git
-    ```
-
-2. Install dependencies.
-
-    ```bash
-    cd nodejs-instagram-api
-    npm install
-    ```
-
-3. Update the script with your Instagram credentials and other relevant information.
-
-4. Run the script.
-
-    ```bash
-    node playground.js
+    npm i nodejs-instagram-api
     ```
 
 ## Usage
 
 Customize the script according to your needs and execute it to automate various Instagram interactions.
 
+1. Install npm package to your local machine.
+
 ```javascript
+const api = require('nodejs-instagram-api');
+
 (async () => {
   // Set Instagram credentials
   var username = 'your-username';
   var password = 'your-password';
 
-  // Set proxy options if needed
-  const proxyOptions = {
-    host: 'proxy-hostname',
-    port: 80,
-    username: 'proxy-username',
-    password: 'proxy-password'
-  };
-
   // Initialize InstagramLogin
-  const instagramLogin = new InstagramLogin(null, username, password);
+  const instagramLogin = new api.InstagramLogin(null, username, password);
   const loginData = await instagramLogin.login();
-  console.log(loginData);
-
-  // Fetch and display profile information
-  const webProfileInfo = new WebProfileInfo(loginData, null, "target-username");
-  const profileData = await webProfileInfo.getProfileData();
-  console.log(profileData);
-
-  // Fetch and display user feed data
-  const userFeed = new UserFeed(loginData, null, "target-username");
-  const userFeedData = await userFeed.getUserFeedData();
-  console.log(userFeedData);
-
-  // Initialize InstagramLogin over Proxy
-  const instagramLogin = new InstagramLogin(proxyOptions, username, password);
-  const loginData = await instagramLogin.login();
-  console.log(loginData);
-
 })();
+```
+```javascript
+{
+  cookie: 'csrftoken=example; rur="example"; mid=example; ds_user_id=example; sessionid=example',
+  username: 'your-username',
+  password: 'your-password',
+  x_ig_app_id: 'example',
+  x_csrftoken: 'example',
+  ig_did: 'example',
+  x_instagram_ajax: 'example'
+}
+```
