@@ -30,6 +30,9 @@ This Node.js script provides automation for interacting with Instagram using the
 
 Customize the script according to your needs and execute it to automate various Instagram interactions.
 
+1. it need to initialize InstagramLogin to loginData
+2. if needed proxyOptions add instead of null 
+
 - **Import dependency**
 ```javascript
 const api = require('nodejs-instagram-api');
@@ -56,9 +59,6 @@ const api = require('nodejs-instagram-api');
   x_instagram_ajax: 'example'
 }
 ```
-
-1. it need to initialize InstagramLogin to loginData
-2. if needed proxyOptions add instead of null 
 
 - **Fetch and display profile information**
 ```javascript
