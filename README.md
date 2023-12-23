@@ -1,5 +1,6 @@
-﻿﻿## Instagram Automation with Node.js
-![image](https://github.com/ylmazmehmet60/nodejs-instagram-api/assets/35243461/d43428ad-e3c3-4e97-8f5c-36774ef8aa9c)
+﻿﻿![image](https://github.com/ylmazmehmet60/nodejs-instagram-api/assets/35243461/d43428ad-e3c3-4e97-8f5c-36774ef8aa9c)
+
+## Instagram Automation with Node.js
 
 ## Overview
 
@@ -19,7 +20,7 @@ This Node.js script provides automation for interacting with Instagram using the
 
 ## Setup
 
-1. Install npm package to your local machine.
+1. **Install npm package to your local machine.**
 
     ```bash
     npm i nodejs-instagram-api
@@ -29,7 +30,7 @@ This Node.js script provides automation for interacting with Instagram using the
 
 Customize the script according to your needs and execute it to automate various Instagram interactions.
 
-1. Install npm package to your local machine.
+1. **Install npm package to your local machine.**
 
 ```javascript
 const api = require('nodejs-instagram-api');
@@ -44,7 +45,7 @@ const api = require('nodejs-instagram-api');
   const loginData = await instagramLogin.login();
 })();
 ```
-```javascript
+```bash
 {
   cookie: 'csrftoken=example; rur="example"; mid=example; ds_user_id=example; sessionid=example',
   username: 'your-username',
