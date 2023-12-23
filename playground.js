@@ -3,26 +3,32 @@ const WebProfileInfo = require('./Services/WebProfileInfo');
 const UserFeed = require('./Services/UserFeed');
 
 (async () => {
-  var username = 'film.duragim';
-  var password = 'Bb.1231233';
+  // Set Instagram credentials
+  var username = 'your-username';
+  var password = 'your-password';
 
+  // Set proxy options if needed
   const proxyOptions = {
-    host: 'hostname',
+    host: 'proxy-hostname',
     port: 80,
-    username: 'proxyusr',
-    password: 'proxypass'
+    username: 'proxy-username',
+    password: 'proxy-password'
   };
 
+  // Initialize InstagramLogin
   const instagramLogin = new InstagramLogin(null, username, password);
   const loginData = await instagramLogin.login();
-  console.log(loginData);
 
-  const webProfileInfo = new WebProfileInfo(loginData, null, "seren.akbalik");
+  // Fetch and display profile information
+  const webProfileInfo = new WebProfileInfo(loginData, null, "target-username");
   const profileData = await webProfileInfo.getProfileData();
-  console.log(profileData);
 
-  const userFeed = new UserFeed(loginData, null, "seren.akbalik");
+  // Fetch and display user feed data
+  const userFeed = new UserFeed(loginData, null, "target-username");
   const userFeedData = await userFeed.getUserFeedData();
-  console.log(userFeedData);
+
+  // Initialize InstagramLogin over Proxy
+  const instagramLoginWithProxy = new InstagramLogin(proxyOptions, username, password);
+  await instagramLoginWithProxy.login();
 
 })();
