@@ -6,6 +6,8 @@
 
 This Node.js script provides automation for interacting with Instagram using the [NodeJS Instagram API](https://github.com/ylmazmehmet60/nodejs-instagram-api). It covers login, profile information retrieval, and fetching user feed data.
 
+[Analysis the Instagram client-side password encryption by Reverse Enginering](https://www.linkedin.com/posts/ylmazmehmet60_analysis-the-instagram-client-side-password-activity-7136500148037206016-NjR0?utm_source=share&utm_medium=member_desktop)
+
 ## Features
 
 1. **Login to Instagram**: With this script, you can automate the login process to Instagram by providing your credentials. The script utilizes the Instagram Private API to handle the authentication and login procedures programmatically.
