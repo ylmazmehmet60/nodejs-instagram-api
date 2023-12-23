@@ -14,7 +14,7 @@ This Node.js script provides automation for interacting with Instagram using the
 
 ## Prerequisites
 
-- Node.js installed on your machine
+- Node.js installed on your machine v18.16.0
 - Instagram account credentials (username and password)
 - [NodeJS Instagram API](https://github.com/ylmazmehmet60/nodejs-instagram-api) library
 
@@ -109,7 +109,7 @@ const api = require('nodejs-instagram-api');
 ```javascript
 
 (async () => {
-  
+
   const proxyOptions = {
     host: 'proxy-hostname',
     port: 80,
