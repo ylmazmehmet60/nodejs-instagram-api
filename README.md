@@ -30,17 +30,18 @@ This Node.js script provides automation for interacting with Instagram using the
 
 Customize the script according to your needs and execute it to automate various Instagram interactions.
 
-1. **Install npm package to your local machine.**
-
+- **import dependency**
 ```javascript
 const api = require('nodejs-instagram-api');
+```
+
+- **Initialize InstagramLogin**
+```javascript
 
 (async () => {
-  // Set Instagram credentials
   var username = 'your-username';
   var password = 'your-password';
 
-  // Initialize InstagramLogin
   const instagramLogin = new api.InstagramLogin(null, username, password);
   const loginData = await instagramLogin.login();
 })();
@@ -55,4 +56,27 @@ const api = require('nodejs-instagram-api');
   ig_did: 'example',
   x_instagram_ajax: 'example'
 }
+```
+
+- **Initialize InstagramLogin**
+
+```javascript
+
+(async () => {
+  const webProfileInfo = new api.WebProfileInfo(loginData, null, "target-username");
+  const profileData = await webProfileInfo.getProfileData();
+})();
+```
+```bash
+{
+  data: {
+    user: {
+      ai_agent_type: null,
+      biography: '',
+      bio_links: [],
+      fb_profile_biolink: null,
+      ...
+    }
+  }
+}  
 ```
