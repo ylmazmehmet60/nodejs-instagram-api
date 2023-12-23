@@ -37,7 +37,6 @@ const api = require('nodejs-instagram-api');
 
 - **Initialize InstagramLogin**
 ```javascript
-
 (async () => {
   var username = 'your-username';
   var password = 'your-password';
@@ -58,10 +57,11 @@ const api = require('nodejs-instagram-api');
 }
 ```
 
-- **Initialize InstagramLogin**
+- **Fetch and display profile information**
 
 ```javascript
-
+// it need to initialize InstagramLogin to loginData
+// if needed proxyOptions add instead of null 
 (async () => {
   const webProfileInfo = new api.WebProfileInfo(loginData, null, "target-username");
   const profileData = await webProfileInfo.getProfileData();
@@ -80,3 +80,32 @@ const api = require('nodejs-instagram-api');
   }
 }  
 ```
+
+- **Fetch and display user feed data**
+```javascript
+// it need to initialize InstagramLogin to loginData
+// if needed proxyOptions add instead of null 
+(async () => {
+  const userFeed = new api.UserFeed(loginData, null, "target-username");
+  const userFeedData = await userFeed.getUserFeedData();
+})();
+```
+
+- **Initialize InstagramLogin over Proxy**
+```javascript
+(async () => {
+  const proxyOptions = {
+    host: 'proxy-hostname',
+    port: 80,
+    username: 'proxy-username',
+    password: 'proxy-password'
+  };
+
+  var username = 'your-username';
+  var password = 'your-password';
+
+  const instagramLogin = new api.InstagramLogin(proxyOptions, username, password);
+  const loginData = await instagramLogin.login();
+})();
+```
+
