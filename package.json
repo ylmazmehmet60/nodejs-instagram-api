@@ -1,6 +1,6 @@
 {
   "name": "nodejs-instagram-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This Node.js script provides automation for interacting with Instagram using the Instagram Private API. It covers login, profile information retrieval, and fetching user feed data.",
   "main": "index.js",
   "scripts": {
@@ -17,5 +17,9 @@
     "enc-password"
   ],
   "author": "Mehmet Yilmaz",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tweetnacl-sealedbox-js": "~1.2.0",
+    "axios": ">=1.2.0"
+  }
 }
