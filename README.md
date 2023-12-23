@@ -35,20 +35,27 @@ Customize the script according to your needs and execute it to automate various 
 
 - **Import dependency**
 ```javascript
+
 const api = require('nodejs-instagram-api');
+
 ```
 
 - **Initialize InstagramLogin**
 ```javascript
+
 (async () => {
+
   var username = 'your-username';
   var password = 'your-password';
 
   const instagramLogin = new api.InstagramLogin(null, username, password);
   const loginData = await instagramLogin.login();
+
 })();
+
 ```
 ```bash
+
 {
   cookie: 'csrftoken=example; rur="example"; mid=example; ds_user_id=example; sessionid=example',
   username: 'your-username',
@@ -58,16 +65,22 @@ const api = require('nodejs-instagram-api');
   ig_did: 'example',
   x_instagram_ajax: 'example'
 }
+
 ```
 
 - **Fetch and display profile information**
 ```javascript
+
 (async () => {
+
   const webProfileInfo = new api.WebProfileInfo(loginData, null, "target-username");
   const profileData = await webProfileInfo.getProfileData();
+
 })();
+
 ```
 ```bash
+
 {
   data: {
     user: {
@@ -79,19 +92,24 @@ const api = require('nodejs-instagram-api');
     }
   }
 }  
+
 ```
 
 - **Fetch and display user feed data**
 ```javascript
 (async () => {
+
   const userFeed = new api.UserFeed(loginData, null, "target-username");
   const userFeedData = await userFeed.getUserFeedData();
+
 })();
 ```
 
 - **Initialize InstagramLogin over Proxy**
 ```javascript
+
 (async () => {
+  
   const proxyOptions = {
     host: 'proxy-hostname',
     port: 80,
@@ -104,6 +122,8 @@ const api = require('nodejs-instagram-api');
 
   const instagramLogin = new api.InstagramLogin(proxyOptions, username, password);
   const loginData = await instagramLogin.login();
+
 })();
+
 ```
 
