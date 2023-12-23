@@ -1,5 +1,5 @@
-const Constants = require('../Helpers/Constants');
-const SelfUtils = require('../Helpers/SelfUtils');
+const Constants = require('../helpers/Constants');
+const SelfUtils = require('../helpers/SelfUtils');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
