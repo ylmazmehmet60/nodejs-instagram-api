@@ -73,6 +73,7 @@ class InstagramLogin {
       const postData = `enc_password=${encodeURIComponent(formattedPassword)}&optIntoOneTap=false&queryParams=%7B%7D&trustedDeviceRecords=%7B%7D&username=${this.username}`;
       
       const receivedCookies = await this.curlPostRequest(this.loginAjax, postData, this.headers);
+      console.log(receivedCookies);
       let cookies = SelfUtils.cookieHandler(receivedCookies)  
       const authParams = {};
       if (cookies.joined.includes("ds_user_id") && cookies.joined != undefined) {

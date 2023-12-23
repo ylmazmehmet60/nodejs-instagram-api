@@ -1,9 +1,9 @@
-const Constants = require('../../helpers/Constants');
-const SelfUtils = require('../../helpers/SelfUtils');
+const Constants = require('../helpers/Constants');
+const SelfUtils = require('../helpers/SelfUtils');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
-class UserFeed {
+class WebProfileInfo {
   constructor(data, proxyOptions = null, targetUsername) {
     this.username = targetUsername;
     this.headers = {
@@ -13,11 +13,11 @@ class UserFeed {
       'X-ig-app-id': data['x_ig_app_id'],
       'X-Instagram-Ajax': data['x_instagram_ajax']
     };
-    this.url = `https://www.instagram.com/api/v1/feed/user/${this.username}/username/?count=12`;
+    this.url = Constants.URLS.WEB_PROFILE_INFO;
     this.proxyOptions = proxyOptions;
   }
 
-  async getUserFeedData() {
+  async getProfileData() {
     const proxyCommand = SelfUtils.buildProxyCommand(this.proxyOptions); 
     const generatedHeader = SelfUtils.genMultiHeader(this.headers); 
     const command = `curl -X GET ${generatedHeader} ${this.url}${this.username} ${proxyCommand}`;
@@ -31,5 +31,5 @@ class UserFeed {
   }
 }
 
-module.exports = UserFeed;
+module.exports = WebProfileInfo;
 

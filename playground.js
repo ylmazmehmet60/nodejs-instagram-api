@@ -1,10 +1,10 @@
 const InstagramLogin = require('./InstagramLogin');
-const WebProfileInfo = require('./Services/ProfileInfo/webProfileInfo');
-const UserFeed = require('./Services/ProfileInfo/userFeed');
+const WebProfileInfo = require('./Services/WebProfileInfo');
+const UserFeed = require('./Services/UserFeed');
 
 (async () => {
-  var username = 'username';
-  var password = 'pass';
+  var username = 'film.duragim';
+  var password = 'Bb.1231233';
 
   const proxyOptions = {
     host: 'hostname',
