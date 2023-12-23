@@ -1,8 +1,8 @@
 const InstagramEncryptor = require('./AES');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const SelfUtils = require('./helpers/SelfUtils');
-const Constants = require('./helpers/Constants');
+const SelfUtils = require('./Helpers/SelfUtils');
+const Constants = require('./Helpers/Constants');
 
 class InstagramLogin {
   constructor(proxyOptions = null, username, password) {
