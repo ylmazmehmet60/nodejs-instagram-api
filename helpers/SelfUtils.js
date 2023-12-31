@@ -30,6 +30,17 @@ class SelfUtils {
         const joined = Object.entries(json).map(([key, value]) => `${key}=${value}`).join('; ');
         return {joined, csrfToken};
     }
+
+    static queryStringParameters(parameters) {
+        var result = Object.keys(parameters)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(parameters[key])}`)
+        .join('&');
+        return `${result}`
+    }
+
+    static secToMs(seconds) {
+        return seconds * 1000;
+    }
 }
 
 module.exports = SelfUtils;

@@ -13,6 +13,7 @@ This Node.js script provides automation for interacting with Instagram using the
 1. **Login to Instagram**: With this script, you can automate the login process to Instagram by providing your credentials. The script utilizes the Instagram Private API to handle the authentication and login procedures programmatically.
 2. **Profile Information**: The script allows you to retrieve comprehensive profile information for a specified Instagram user. This includes details such as the user's bio, profile picture, follower count, following count, and other relevant information.
 3. **User Feed Data**: You can fetch and analyze the latest posts and activity from a targeted Instagram user's feed. This includes posts, captions, timestamps, and other relevant data to keep you updated on a user's recent Instagram activity.
+3. **Followers and Following Lists**: You can fetch followers and follow list from a targeted Instagram user's. 
 
 ## Prerequisites
 
@@ -129,3 +130,17 @@ const api = require('nodejs-instagram-api');
 
 ```
 
+- **Followers and Following Lists**
+1. The FriendShip class is configured with relevant parameters, including a timeout of 5 seconds (secTimeout) and a page size of 200 (pageSize).
+2. Asynchronous calls are made to retrieve the followers and following lists of the target user using the getFollowers and getFollowing methods, respectively.
+3. [Sample output](https://gist.github.com/ylmazmehmet60/54159a7cc822992a9d4f2b4f1d0e89a1)
+
+```javascript
+  // Extract the target user's ID from the profile data
+  // Create a new instance of the FriendShip class with relevant parameters
+  var targetUser = profileData.data.user.id;
+  const friendShip = new FriendShip(loginData, null, targetUser, secTimeout=5, pageSize=200);
+  // Use asynchronous calls to get the followers and following lists
+  var followers = await friendShip.getFollowers();
+  var following = await friendShip.getFollowing();
+```
