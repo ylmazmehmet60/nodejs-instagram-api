@@ -33,9 +33,6 @@ This Node.js script provides automation for interacting with Instagram using the
 
 Customize the script according to your needs and execute it to automate various Instagram interactions.
 
-1. it need to initialize InstagramLogin to loginData
-2. if needed proxyOptions add instead of null 
-
 - **Import dependency**
 ```javascript
 
@@ -51,7 +48,7 @@ const api = require('nodejs-instagram-api');
   var username = 'your-username';
   var password = 'your-password';
 
-  const instagramLogin = new api.InstagramLogin(null, username, password);
+  const instagramLogin = new api.InstagramLogin(proxyOptions=null, username, password);
   const loginData = await instagramLogin.login();
 
 })();
@@ -60,13 +57,13 @@ const api = require('nodejs-instagram-api');
 ```bash
 
 {
-  cookie: 'csrftoken=example; rur="example"; mid=example; ds_user_id=example; sessionid=example',
+  cookie: 'csrftoken=XXXXX; rur="XXXXX"; mid=XXXXX; ds_user_id=XXXXX; sessionid=XXXXX',
   username: 'your-username',
   password: 'your-password',
-  x_ig_app_id: 'example',
-  x_csrftoken: 'example',
-  ig_did: 'example',
-  x_instagram_ajax: 'example'
+  x_ig_app_id: 'XXXXX',
+  x_csrftoken: 'XXXXX',
+  ig_did: 'XXXXX',
+  x_instagram_ajax: 'XXXXX'
 }
 
 ```
@@ -76,25 +73,10 @@ const api = require('nodejs-instagram-api');
 
 (async () => {
 
-  const webProfileInfo = new api.WebProfileInfo(loginData, null, "target-username");
+  const webProfileInfo = new api.WebProfileInfo(loginData, proxyOptions=null, "target-username");
   const profileData = await webProfileInfo.getProfileData();
 
 })();
-
-```
-```bash
-
-{
-  data: {
-    user: {
-      ai_agent_type: null,
-      biography: '',
-      bio_links: [],
-      fb_profile_biolink: null,
-      ...
-    }
-  }
-}  
 
 ```
 
@@ -102,7 +84,7 @@ const api = require('nodejs-instagram-api');
 ```javascript
 (async () => {
 
-  const userFeed = new api.UserFeed(loginData, null, "target-username");
+  const userFeed = new api.UserFeed(loginData, proxyOptions=null, "target-username");
   const userFeedData = await userFeed.getUserFeedData();
 
 })();
@@ -136,11 +118,19 @@ const api = require('nodejs-instagram-api');
 3. [Sample output](https://gist.github.com/ylmazmehmet60/54159a7cc822992a9d4f2b4f1d0e89a1)
 
 ```javascript
+
+(async () => {
+
   // Extract the target user's ID from the profile data
   // Create a new instance of the FriendShip class with relevant parameters
-  var targetUser = profileData.data.user.id;
-  const friendShip = new FriendShip(loginData, null, targetUser, secTimeout=5, pageSize=200);
+  const webProfileInfo = new api.WebProfileInfo(loginData, proxyOptions=null, "target-username");
+  const profileData = await webProfileInfo.getProfileData();
+  const targetUser = profileData.data.user.id;
+  const friendShip = new api.FriendShip(loginData, null, targetUser, secTimeout=5, pageSize=200);
   // Use asynchronous calls to get the followers and following lists
   var followers = await friendShip.getFollowers();
   var following = await friendShip.getFollowing();
+  
+})();
+
 ```
